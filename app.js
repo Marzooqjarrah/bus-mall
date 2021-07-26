@@ -8,7 +8,7 @@ let midImage = document.getElementById('mid-image');
 
 
 
-let maxAttempts = 10;
+let maxAttempts = 25;
 let userCounterAttempt = 0;
 
 
@@ -128,7 +128,8 @@ function handleUserClick(event) {
         } else if  (event.target.id === 'mid-image') {
 
                 products[midImageIndex].votes++
-        }
+        } else {
+            alert('please click on the image');        }
 
 
 

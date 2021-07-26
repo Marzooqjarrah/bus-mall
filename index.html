@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   
+
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 
 
-<main>
-<p> welcome to our page, you have 25 trials</p>
+    <main>
+        <h1> welcome to our page, you have 25 trials</h1>
 
 
-    <div id ="image-div">
-<img id ='left-image' src="" alt="">
-<img id ='right-image' src="" alt="">
-<img id ='mid-image' src="" alt="">
+        <div id="image-div">
+            <img id='left-image' src="" alt="">
+            <img id='right-image' src="" alt="">
+            <img id='mid-image' src="" alt="">
 
+        </div>
+
+        <ul id="results-list"></ul>
+
+
+        <button id='btn' hidden> View Results </button>
+
+
+
+        <div>
+            <canvas id='myChart'></canvas>
+        </div>
+
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+    <div>
+        <canvas id='myChart'></canvas>
     </div>
 
-<ul id ="results-list"></ul>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<button id ='btn'>
-    View Results
-</button>
+    <script src="app.js"></script>
 
-</main>
-
-    
 </body>
-
-<script src="app.js"></script>
 
 </html>

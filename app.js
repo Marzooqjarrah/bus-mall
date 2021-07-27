@@ -26,7 +26,7 @@ let votesArr = [];
 let shownArr = [];
 
 
-function Product(name, src) {
+function Product (name, src) {
 
     this.name = name;
     this.src = src;
@@ -34,15 +34,64 @@ function Product(name, src) {
     this.shown = 0;
 
     Product.allProducts.push(this);
-    // products.push(this);
+
 
     namesArr.push(this.name);
+
+    updateStorage();
 }
 
 Product.allProducts = [];
 
 
-// let products = [];
+Product.prototype.loog = function () {
+
+    console.log(Products.loog);
+}
+
+
+
+function updateStorage() {
+
+    console.log(Product.allProducts);
+
+    let stringArr = JSON.stringify(Product.allProducts);
+    console.log(stringArr);
+
+    localStorage.setItem('products', stringArr);
+
+}
+
+
+function getProductOrders() {
+
+    let data = localStorage.getItem('products');
+    console.log(data);
+
+
+    let parsedArr = JSON.parse(data);
+    console.log(parsedArr);
+
+
+    if (parsedArr !== null) {
+
+        for (let i = 0; i < parsedArr.length; i++) {
+
+            console.log(parsedArr[i]);
+
+
+            new Product(parsedArr[i].name, parsedArr[i].src);
+
+
+
+        }
+
+        console.log(Product.allProducts);
+    }
+       renderThreeImages();
+}
+
+
 
 
 new Product('bag', 'img/assets/bag.jpg');
@@ -279,6 +328,7 @@ function showChart() {
 
 
 
+getProductOrders();
 
 
 
@@ -291,99 +341,67 @@ function showChart() {
 
 
 
-//     // console.log(Product.allProducts[i].votes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function save() {
+
+//     let newArr = JSON.stringify(Product.allProducts);
+//     localStorage.setItem('put', newArr);
 
 // }
 
-// // div.removeEventListener('click', handleUserClick);
+
+// function getVotes() {
+
+//     let data = localStorage.getItem('put');
+
+//     console.log(data);
+
+//     let parsedput = JSON.parse(data);
+
+//     console.log(parsedput);
 
 
-// showChart();
+//     if (parsedput !== null) {
 
-// {
-//     userCounterAttempt++;
-// }
+//         Product.allProducts = parsedput;
 
-// console.log(namesArray);
-
-// function showChart() {
-
-//     const data = {
-//         labels: namesArray,
-//         datasets: [{
-//             label: 'Votes',
-//             data: votesArray,
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)',
-//                 'rgba(255, 205, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(201, 203, 207, 0.2)'
-//             ],
-
-//             borderColor: [
-//                 'rgb(255, 99, 132)',
-//                 'rgb(255, 159, 64)',
-//                 'rgb(255, 205, 86)',
-//                 'rgb(75, 192, 192)',
-//                 'rgb(54, 162, 235)',
-//                 'rgb(153, 102, 255)',
-//                 'rgb(201, 203, 207)'
-//             ],
-
-//             borderWidth: 1
-//         },
-
-//         {
-//             label: 'Shown',
-//             data: shownArray,
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)',
-//                 'rgba(255, 205, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(201, 203, 207, 0.2)'
-//             ],
-
-//             borderColor: [
-//                 'rgb(255, 99, 132)',
-//                 'rgb(255, 159, 64)',
-//                 'rgb(255, 205, 86)',
-//                 'rgb(75, 192, 192)',
-//                 'rgb(54, 162, 235)',
-//                 'rgb(153, 102, 255)',
-//                 'rgb(201, 203, 207)'
-//             ],
-
-//             borderWidth: 1
-//         }
-
-//         ]
 //     };
 
-//     const config = {
-//         type: 'bar',
-//         data: data,
-//         options: {
-//             scales: {
-//                 y: {
-//                     beginAtZero: true
-//                 }
-//             }
-//         },
-//     };
-
-
-//     var myChart = new Chart(
-//         document.getElementById('myChart'),
-//         config
-//     );
+//     getVotes();
 
 // }
+
+
+
+
+
+
+
+
+
 
 
 
